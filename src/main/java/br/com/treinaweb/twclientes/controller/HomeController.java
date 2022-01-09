@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/")
@@ -15,12 +16,16 @@ public class HomeController {
         return "home";
     }
 
-
+// Podemos passar atraves do  Model ou ModelMap
     @GetMapping("/menssagem")
-    public String menssagem(ModelMap modelMap) {
-        modelMap.addAttribute("menssagem", "Menssagem Vinda do Servidor");
+    public ModelAndView menssagem() {
+        ModelAndView modelAndView = new ModelAndView();
 
-        return "menssagem";
+        modelAndView.setViewName("menssagem");
+        modelAndView.addObject("menssagem", "outra mensagem vinda do servidor");
+
+        return modelAndView;
+
     }
 
 }
