@@ -41,9 +41,10 @@ public class HomeController {
     // }
 
     @GetMapping("/saudacao")
-    public ModelAndView saudacao(@RequestParam String nome) {
+    public ModelAndView saudacao(@RequestParam(required = false, defaultValue = "treinaWeb") String nome) {
 
         ModelAndView modelAndView = new ModelAndView();
+
         modelAndView.setViewName("saudacao");
         modelAndView.addObject("nome", nome);
 
