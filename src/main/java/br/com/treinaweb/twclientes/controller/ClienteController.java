@@ -18,7 +18,7 @@ public class ClienteController {
     @Autowired
     private ClienteRepository clienteRepository;
 
-    @GetMapping
+    @GetMapping()
     public ModelAndView listar() {
         ModelAndView modelAndView = new ModelAndView("cliente/listar.html");
 
